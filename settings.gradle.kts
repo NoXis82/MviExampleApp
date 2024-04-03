@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MviExample"
 include(":app")
- 
+include(":api_lib")
