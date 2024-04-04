@@ -9,13 +9,11 @@ object RetrofitBuilder {
 
     private const val BASE_URL = "https://5e510330f2c0d300147c034c.mockapi.io/"
 
-    fun apiHelper(okHttpClient: OkHttpClient): ApiService {
-        return getRetrofit(okHttpClient).create(ApiService::class.java)
-    }
+    val apiService: ApiService
+        get() = getRetrofit().create(ApiService::class.java)
 
-    private fun getRetrofit(
-        okHttpClient: OkHttpClient
-    ): Retrofit {
+
+    private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
